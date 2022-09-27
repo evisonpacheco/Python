@@ -8,19 +8,32 @@ def jogar():
 
     acertou = False
     enforcou = False
-
+    tentativas = 6
     print(letras_acertadas)
 
-    while(not acertou and not enforcou):
+    while not acertou and not enforcou:
         chute = input("Escolha uma letra: ").lower().strip()
 
-        index = 0
-        for letra in palavra_secreta:
-            if(chute == letra):
-                letras_acertadas[index] = letra
-            index = index + 1
+        if(chute in palavra_secreta):
+            index = 0
+            for letra in palavra_secreta:
+                if chute == letra:
+                    letras_acertadas[index] = letra
+                index += 1
+            print(letras_acertadas)
 
-        print(letras_acertadas)
+        else:
+            tentativas -= 1
+            print(letras_acertadas)
 
-if(__name__ == "__main__"):
+        if tentativas <= 0:
+            enforcou = True
+            print("Você Perdeu ...")
+
+        if "_" not in letras_acertadas:
+            acertou = True
+            print("Você ganhou !!!")
+
+
+if __name__ == "__main__":
     jogar()

@@ -10,7 +10,7 @@ print("[1]Advinhação [2]Forca")
 jogo = int(input("Qual jogo você quer jogar?\n"))
 
 
-if(jogo == 1):
+if jogo == 1:
     advinhacao.jogar()
-elif(jogo == 2):
+elif jogo == 2:
     forca.jogar()
