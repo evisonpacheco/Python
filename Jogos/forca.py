@@ -24,6 +24,7 @@ def jogar():
 
         else:
             tentativas -= 1
+            print(f"Letra {chute.upper()} não encontrada. Ainda faltam {tentativas} tentativas")
             print(letras_acertadas)
 
         if tentativas <= 0:
