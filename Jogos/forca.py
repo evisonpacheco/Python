@@ -4,10 +4,7 @@ def jogar():
     print("******************************")
 
     palavra_secreta = "praia"
-    letras_acertadas = []
-
-    for letra in palavra_secreta:
-        letras_acertadas.append("_")
+    letras_acertadas = ["_" for letra in palavra_secreta]
 
     acertou = False
     enforcou = False
