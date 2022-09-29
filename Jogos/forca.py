@@ -2,19 +2,10 @@ import random
 
 
 def jogar():
-    print("******************************")
-    print("**Bem vindo ao jogo da Forca**")
-    print("******************************")
 
-    lista_de_palavras = []
+    imprimir_mensagem_de_boas_vindas_ao_jogo()
 
-    with open("palavras.txt") as arquivo:
-        for linha in arquivo:
-            linha = linha.strip()
-            lista_de_palavras.append(linha)
-
-    index = random.randrange(0, len(lista_de_palavras))
-    palavra_secreta = lista_de_palavras[index]
+    palavra_secreta = carregar_palavra_secreta()
 
     letras_acertadas = ["_" for letra in palavra_secreta]
 
@@ -47,6 +38,26 @@ def jogar():
         if "_" not in letras_acertadas:
             acertou = True
             print("Você ganhou !!!")
+
+
+def imprimir_mensagem_de_boas_vindas_ao_jogo():
+    print("******************************")
+    print("**Bem vindo ao jogo da Forca**")
+    print("******************************")
+
+
+def carregar_palavra_secreta():
+    lista_de_palavras = []
+
+    with open("palavras.txt") as arquivo:
+        for linha in arquivo:
+            linha = linha.strip()
+            lista_de_palavras.append(linha)
+
+    index = random.randrange(0, len(lista_de_palavras))
+    palavra_secreta = lista_de_palavras[index]
+
+    return palavra_secreta
 
 
 if __name__ == "__main__":
